@@ -7,14 +7,14 @@ def GenerateBoard(date):
         [0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,None,None,None,None,None,None,0,0,0,0],
-        [0,0,0,None,None,None,None,None,None,0,0,0,0],
+        [0,0,0,0,None,None,None,None,None,None,0,0,0],
+        [0,0,0,0,None,None,None,None,None,None,0,0,0],
         [0,0,0,None,None,None,None,None,None,None,0,0,0],
         [0,0,0,None,None,None,None,None,None,None,0,0,0],
         [0,0,0,None,None,None,None,None,None,None,0,0,0],
         [0,0,0,None,None,None,None,None,None,None,0,0,0],
         [0,0,0,None,None,None,None,None,None,None,0,0,0],
-        [0,0,0,0,0,0,0,None,None,None,0,0,0],
+        [0,0,0,None,None,None,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -22,12 +22,12 @@ def GenerateBoard(date):
     weekDayNum = date.weekday()
     dayNum = date.day-1
     monthNum=date.month-1
-    board[int(monthNum/6)+3][(monthNum%6)+3] = date.strftime("%b")
+    board[int(monthNum/6)+3][(monthNum%6)+4] = date.strftime("%b")
     board[int(dayNum/7)+5][(dayNum%7)+3] = date.strftime("%d")
     if weekDayNum == 6:
         board[9][6] = date.strftime("%a")
     else:
-        board[int(weekDayNum/3)+9][(weekDayNum%3)+7] = date.strftime("%a")
+        board[int(weekDayNum/3)+9][(weekDayNum%3)+3] = date.strftime("%a")
     return Board(board)
 
 def CreatePieces():
